@@ -1,0 +1,90 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <style>
+        nav{
+            background-color: black;
+            box-shadow: 5px;
+        }
+        body{
+            background-image: url("{%static '/images/03.jpg'%}");
+            background-size: 100vw 150vh;
+            /* background-size: 100%; */
+            background-repeat: no-repeat;
+            background-color: black;
+
+        }
+        table{
+            margin: auto;
+        }
+    </style>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img  width="120vw" class="img-fluid" src="{%static 'images/logo1.png'%}"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                  </li>
+              
+                <li class="nav-item mt-2">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">logout</a>
+                    </li>
+                </li>
+        
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <table class="table text-light bg-dark text-center w-50 mt-5">
+            
+            <tr>
+                <th>CUSTOMER NAME</th>
+                <th>CUSTOMER ADDRESS</ADDress></th>
+                <th>CUSTOMER PHONE NUMBER</th>
+                <th>CAR MODEL</th>
+                <th>CAR IMAGE</th>
+            </tr>
+           
+                <tr>
+                
+                    {% for d in orders %}
+                    <tr>
+                        
+                        <td>{{ d.Cart_Customer.Customer.first_name }} {{ d.Cart_Customer.Customer.last_name }} </td>
+                        <td>{{ d.Cart_Customer.Address }}</td>
+                        <td>{{ d.Cart_Customer.Phone_Number }}</td>
+                        <td>{{ d.Cart_Product.Product_Name }}</td>
+                        <td>
+                            <img src="{{ d.Cart_Product.Product_Image.url }}" width="40px" height="40px" alt="">
+                        </td>
+                        
+                        
+                    </tr>
+                    {% endfor %}
+        </table>
+
+         <!-- footer -->
+         <div class="footer">
+
+         </div>
+        
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
+</html> 
