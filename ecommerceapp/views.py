@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib import messages
 from ecommerceapp.models import CustomerModal,CategoryModal,ProductModal,CartModal,OrderModal
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+
 
 #homePage
 def homepage(request):
