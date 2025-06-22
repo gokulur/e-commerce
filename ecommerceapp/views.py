@@ -277,7 +277,7 @@ def removeCart(request,remid):
     pro.delete()
     return redirect('customerPage')
 
-# ===================================
+
 #place-Order
 def placeorder(request,plid):
     data =ProductModal.objects.get(id=plid)
@@ -294,7 +294,7 @@ def orderplaced(request):
     return render(request,'orderplaced.html',{'categories':category}) 
     
 
-# ===================================
+
 
 
 
