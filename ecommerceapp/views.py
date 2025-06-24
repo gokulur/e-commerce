@@ -136,6 +136,7 @@ def addProduct(request):
     
 
 #Admin-ProductDetails Page
+@login_required(login_url='userLogin')
 def productDetailsPage(request):
     productdetail=ProductModal.objects.all()
     return render(request,'adminProductDetails.html',{'productdetails':productdetail})
